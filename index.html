@@ -1,270 +1,524 @@
 <!DOCTYPE html>
-
 <html lang="ko">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>to. 오빠</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
-
+<title>강릉 데이트 🌊 10월 2~3일</title>
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Nanum+Myeongjo:wght@400;700;800&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
 <style>
-
-body{
-
-  margin:0;
-
-  background:#f7efe5;
-
-  font-family:'Nanum Myeongjo', serif;
-
-  overflow:hidden;
-
-}
-
-/* 인트로 */
-
-.intro{
-
-  position:absolute;
-
-  width:100%;
-
-  height:100vh;
-
-  display:flex;
-
-  justify-content:center;
-
-  align-items:center;
-
-  background:#f2e4d7;
-
-  flex-direction:column;
-
-}
-
-.intro h1{
-
-  font-size:22px;
-
-  opacity:0;
-
-  animation:fadeIn 2s forwards;
-
-}
-
-.intro button{
-
-  margin-top:20px;
-
-  padding:10px 20px;
-
-  border:none;
-
-  background:#d6bfa9;
-
-  color:#fff;
-
-  border-radius:20px;
-
-  cursor:pointer;
-
-}
-
-/* 편지 */
-
-.letter{
-
-  display:none;
-
-  width:100%;
-
-  height:100vh;
-
-  justify-content:center;
-
-  align-items:center;
-
-  background:#f7efe5;
-
-}
-
-.paper{
-
-  width:320px;
-
-  padding:25px;
-
-  background:#fffdf9;
-
-  box-shadow:0 0 20px rgba(0,0,0,0.1);
-
-  border-radius:10px;
-
-  line-height:1.8;
-
-  position:relative;
-
-}
-
-/* 커피 얼룩 느낌 */
-
-.paper::before{
-
-  content:'';
-
-  position:absolute;
-
-  width:120px;
-
-  height:120px;
-
-  background:radial-gradient(rgba(150,100,50,0.2), transparent);
-
-  top:-30px;
-
-  right:-30px;
-
-  border-radius:50%;
-
-}
-
-/* 약속 파트 */
-
-.promise{
-
-  margin-top:20px;
-
-  padding-top:15px;
-
-  border-top:1px solid #ddd;
-
-  font-size:14px;
-
-  color:#555;
-
-}
-
-@keyframes fadeIn{
-
-  to{opacity:1;}
-
-}
-
+:root{--cream:#f0f7fa;--blush:#b8dce8;--rose:#2e7ea8;--wine:#1a4f6e;--sage:#4a9e8e;--dusty:#6ab0c2;--ink:#1a2e3a;--soft:#e0f0f7;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--cream);font-family:'Gowun Dodum',sans-serif;color:var(--ink);overflow-x:hidden;}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:3rem 2rem;
+  background:linear-gradient(180deg,#0a2a3e 0%,#1a4f6e 40%,#2e7ea8 70%,#6aafca 100%);
+  position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;bottom:0;left:0;right:0;height:120px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath d='M0,60 C200,100 400,20 600,60 C800,100 1000,20 1200,60 L1200,120 L0,120 Z' fill='%23f0f7fa'/%3E%3C/svg%3E") no-repeat bottom;background-size:cover;}
+.hero-badge{font-family:'Caveat',cursive;font-size:1.1rem;color:#a0d4e8;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.3);padding:.4rem 1.2rem;border-radius:50px;margin-bottom:1.5rem;display:inline-block;backdrop-filter:blur(4px);animation:float 3s ease-in-out infinite;}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.hero h1{font-family:'Nanum Myeongjo',serif;font-size:clamp(2.2rem,6vw,4rem);font-weight:800;color:white;margin-bottom:1rem;line-height:1.25;text-shadow:0 2px 20px rgba(0,0,0,.3);}
+.hero h1 span{color:#a0d4e8;font-family:'Caveat',cursive;font-size:1.1em;}
+.hero-sub{color:rgba(255,255,255,.8);margin-bottom:2.5rem;font-size:.97rem;}
+.wave-stars{font-size:1.5rem;letter-spacing:.3rem;margin-bottom:2rem;opacity:.8;}
+
+.plan-nav{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;}
+.plan-nav a{text-decoration:none;padding:.7rem 2rem;border-radius:50px;font-weight:700;font-size:.95rem;transition:all .3s;color:white;}
+.plan-nav a.day1{background:var(--wine)}.plan-nav a.day2{background:var(--sage)}
+.plan-nav a:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,.2);}
+
+/* SECTION */
+.plan-section{padding:4rem 0 2rem;}.anchor{scroll-margin-top:30px;}
+.section-intro{text-align:center;padding:0 2rem 2.5rem;}
+.plan-tag{display:inline-block;font-family:'Caveat',cursive;font-size:1rem;padding:.3rem 1rem;border-radius:4px;margin-bottom:.8rem;}
+.tag-1{background:#daeef5;color:var(--wine)}.tag-2{background:#d4eee8;color:#1a5e50}
+.section-intro h2{font-family:'Nanum Myeongjo',serif;font-size:clamp(1.6rem,4vw,2.6rem);font-weight:800;color:var(--wine);}
+.section-intro p{color:#4a6a7a;margin-top:.5rem;font-size:.95rem;}
+
+/* INFO BANNER */
+.info-banner{background:linear-gradient(135deg,#e0f5ff,#d4f0e8);border:1px solid var(--blush);border-radius:16px;padding:1rem 1.5rem;max-width:760px;margin:0 auto 2rem;display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-around;text-align:center;}
+.info-item .val{font-family:'Caveat',cursive;font-size:1.3rem;color:var(--wine);display:block;}
+.info-item .label{font-size:.78rem;color:#5a8a9a;}
+
+/* DAY HEADER */
+.day-header{font-family:'Nanum Myeongjo',serif;color:var(--wine);max-width:660px;margin:2rem auto 1.2rem;display:flex;align-items:center;gap:.6rem;padding:0 1.5rem;}
+.day-header.teal{color:#1a5e50;}
+.day-badge{font-family:'Caveat',cursive;font-size:.85rem;background:var(--wine);color:white;padding:.15rem .7rem;border-radius:4px;}
+.day-badge.teal{background:#1a5e50;}
+
+/* ROUTE COL */
+.route-col{max-width:660px;margin:0 auto;padding:0 1.5rem;display:flex;flex-direction:column;align-items:stretch;}
+
+/* STOP CARD */
+.stop-card{background:white;border-radius:18px;padding:1.3rem 1.5rem;box-shadow:0 3px 18px rgba(30,100,140,.08);border:1px solid #d0e8f0;transition:transform .25s,box-shadow .25s;}
+.stop-card:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(30,100,140,.15);}
+.stop-top{display:flex;align-items:flex-start;justify-content:space-between;gap:.8rem;margin-bottom:.5rem;flex-wrap:wrap;}
+.stop-name{font-family:'Nanum Myeongjo',serif;font-weight:700;font-size:1.05rem;color:var(--ink);flex:1;}
+.stop-time{font-family:'Caveat',cursive;font-size:.88rem;background:var(--soft);color:var(--rose);padding:.2rem .8rem;border-radius:20px;border:1px solid var(--blush);white-space:nowrap;}
+.stop-desc{font-size:.86rem;color:#4a6a7a;line-height:1.65;margin-bottom:.9rem;}
+.stop-links{display:flex;flex-wrap:wrap;gap:.4rem;}
+
+/* LINK PILLS */
+.link-pill{display:inline-flex;align-items:center;gap:.3rem;font-size:.78rem;padding:.25rem .8rem;border-radius:20px;border:1.5px solid var(--rose);color:var(--rose);text-decoration:none;cursor:pointer;background:white;transition:all .2s;font-family:'Gowun Dodum',sans-serif;}
+.link-pill:hover{background:var(--rose);color:white;}
+.link-pill.teal{border-color:var(--sage);color:var(--sage);}
+.link-pill.teal:hover{background:var(--sage);color:white;}
+.link-pill.add{border-style:dashed;border-color:#9abac8;color:#7a9aaa;}
+.link-pill.add:hover{border-color:var(--rose);color:var(--rose);background:white;}
+.link-pill.existing{border-color:var(--rose);color:var(--rose);}
+
+/* TBD */
+.tbd-badge{display:inline-flex;align-items:center;gap:.3rem;font-size:.76rem;padding:.2rem .7rem;border-radius:20px;background:#f0f8fc;border:1px dashed var(--dusty);color:#5a8aaa;font-family:'Gowun Dodum',sans-serif;}
+
+/* ALT BOX */
+.alt-box{background:#f0f8fc;border:1px solid #c0dcea;border-radius:12px;padding:.8rem 1rem;margin-top:.7rem;font-size:.82rem;color:#3a6a7a;}
+.alt-box strong{color:var(--wine);display:block;margin-bottom:.3rem;font-size:.85rem;}
+.alt-box a{color:var(--rose);text-decoration:none;}
+.alt-box a:hover{text-decoration:underline;}
+
+/* TRANSIT */
+.transit-block{margin:8px 0;display:flex;flex-direction:column;align-items:center;}
+.transit-btn{display:flex;align-items:center;gap:.6rem;background:white;border:1.5px solid var(--blush);border-radius:30px;padding:.45rem 1.2rem;cursor:pointer;font-family:'Gowun Dodum',sans-serif;font-size:.82rem;color:#4a6a7a;transition:all .2s;box-shadow:0 2px 8px rgba(0,0,0,.05);width:fit-content;}
+.transit-btn:hover{border-color:var(--rose);color:var(--rose);box-shadow:0 4px 14px rgba(46,126,168,.2);}
+.transit-btn .arrow{font-size:.7rem;margin-left:.2rem;transition:transform .3s;}
+.transit-btn.open .arrow{transform:rotate(180deg);}
+.transit-btn strong{color:var(--wine);}
+.map-panel{width:100%;max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.4,0,.2,1),opacity .4s;opacity:0;}
+.map-panel.open{max-height:340px;opacity:1;}
+.map-inner{background:#d8eef5;border:1.5px solid var(--blush);border-radius:16px;margin-top:8px;padding:12px;}
+.route-svg{width:100%;height:200px;display:block;}
+.map-info-bar{display:flex;align-items:center;justify-content:center;gap:1rem;margin-top:8px;flex-wrap:wrap;}
+.map-chip{background:white;border:1px solid var(--blush);border-radius:20px;padding:.2rem .8rem;font-size:.78rem;color:#4a6a7a;display:flex;align-items:center;gap:.3rem;}
+.map-chip strong{color:var(--wine);}
+
+/* DIVIDER */
+.wavy-divider{text-align:center;padding:2rem;color:var(--blush);font-size:1.4rem;letter-spacing:.5rem;}
+
+/* COMING SOON */
+.coming-soon-box{max-width:660px;margin:2rem auto;padding:2.5rem;text-align:center;background:white;border-radius:20px;border:2px dashed var(--blush);box-shadow:0 4px 20px rgba(30,100,140,.06);}
+.coming-soon-box p{font-family:'Caveat',cursive;font-size:1.4rem;color:var(--dusty);line-height:2;}
+.coming-soon-box small{font-family:'Gowun Dodum',sans-serif;font-size:.85rem;color:#8aaaba;}
+
+/* FOOTER */
+footer{text-align:center;padding:3rem 2rem 4rem;font-family:'Caveat',cursive;font-size:1.3rem;color:var(--wine);line-height:2;
+  background:linear-gradient(180deg,var(--cream),#c8e8f4);}
+footer small{display:block;font-family:'Gowun Dodum',sans-serif;font-size:.78rem;color:#8aaaba;margin-top:.4rem;}
+
+/* MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(10,40,60,.55);z-index:1000;align-items:center;justify-content:center;backdrop-filter:blur(4px);}
+.modal-overlay.open{display:flex;}
+.modal{background:white;border-radius:24px;padding:2rem;width:min(92vw,420px);box-shadow:0 20px 60px rgba(0,0,0,.2);animation:popIn .25s ease;}
+@keyframes popIn{from{transform:scale(.88) translateY(12px);opacity:0}to{transform:scale(1);opacity:1}}
+.modal h3{font-family:'Nanum Myeongjo',serif;font-size:1.2rem;color:var(--wine);margin-bottom:.3rem;}
+.modal p{font-size:.83rem;color:#5a8a9a;margin-bottom:1.4rem;}
+.modal label{display:block;font-size:.82rem;color:var(--ink);margin-bottom:.3rem;font-weight:600;}
+.modal input{width:100%;padding:.65rem .9rem;border:1.5px solid #c0d8e4;border-radius:10px;font-family:'Gowun Dodum',sans-serif;font-size:.9rem;outline:none;margin-bottom:1rem;transition:border-color .2s;color:var(--ink);}
+.modal input:focus{border-color:var(--rose);}
+.modal-btns{display:flex;gap:.7rem;justify-content:flex-end;margin-top:.5rem;}
+.btn-cancel{padding:.55rem 1.3rem;border-radius:20px;border:1.5px solid #c0d8e4;background:white;color:#5a8a9a;cursor:pointer;font-family:'Gowun Dodum',sans-serif;font-size:.88rem;transition:all .2s;}
+.btn-cancel:hover{border-color:var(--rose);color:var(--rose);}
+.btn-save{padding:.55rem 1.5rem;border-radius:20px;border:none;background:var(--wine);color:white;cursor:pointer;font-family:'Gowun Dodum',sans-serif;font-size:.88rem;font-weight:700;transition:all .2s;}
+.btn-save:hover{background:var(--rose);transform:translateY(-1px);}
+.btn-delete{padding:.55rem 1rem;border-radius:20px;border:1.5px solid #c0d8e4;background:white;color:#c07070;cursor:pointer;margin-right:auto;font-family:'Gowun Dodum',sans-serif;font-size:.82rem;transition:all .2s;}
+.btn-delete:hover{background:#fff0f0;border-color:#c07070;}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s,transform .6s;}
+.reveal.visible{opacity:1;transform:none;}
+.fade-in{animation:fadeUp .7s ease both;}
+.delay-1{animation-delay:.1s}.delay-2{animation-delay:.25s}.delay-3{animation-delay:.4s}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
 </style>
-
 </head>
-
 <body>
 
-<!-- 1페이지 (인트로) -->
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge fade-in">🗓️ 2025년 10월 2일 ~ 3일 · 1박 2일</div>
+  <div class="wave-stars fade-in">🌊 ✦ 🌊 ✦ 🌊</div>
+  <h1 class="fade-in delay-1">강릉 바다 데이트<br><span>출렁출렁 설레는 🌊</span></h1>
+  <p class="hero-sub fade-in delay-2">수서에서 출발해서 강릉 바다까지 — 가을 바다 감성 가득</p>
+  <nav class="plan-nav fade-in delay-3">
+    <a href="#day1" class="day1">🌊 Day 1 · 강릉</a>
+    <a href="#day2" class="day2">✨ Day 2 · 서울 (TBD)</a>
+  </nav>
+</section>
 
-<div class="intro" id="intro">
-
-  <h1>오빠한테 전하고 싶은 말이 있어</h1>
-
-  <button onclick="showLetter()">열어보기</button>
-
-</div>
-
-<!-- 2페이지 (사과 편지) -->
-
-<div class="letter" id="letter1">
-
-  <div class="paper">
-
-    <p>
-
-    이걸로 내 마음이 전해질지는 모르겠지만  
-
-    오빠 생각하면서 만들어본 사이트야.<br><br>
-
-    먼저 오빠한테 진짜 미안하다는 말 먼저 하고 싶어.<br><br>
-
-    내가 그때 했던 말이 얼마나 상처될 수 있는지  
-
-    제대로 생각 못하고 말해버린 것 같아.<br><br>
-
-    오빠가 얼마나 힘들게 꺼낸 얘기인데  
-
-    그걸 내가 가볍게 꺼내버린게 너무 미안해.
-
-    </p>
-
-    <button onclick="nextPage()">다음</button>
-
+<!-- ═══════ DAY 1 : 강릉 ═══════ -->
+<section id="day1" class="plan-section anchor">
+  <div class="section-intro reveal">
+    <div class="plan-tag tag-1">Day 1</div>
+    <h2>🌊 강릉 당일 코스</h2>
+    <p>10월 2일 (목) · 수서 출발 → 강릉 순두부 → 아르떼뮤지엄 → 바다 카페 → 산책 → 저녁 → 숙소</p>
   </div>
 
-</div>
-
-<!-- 3페이지 (앞으로 행동) -->
-
-<div class="letter" id="letter2">
-
-  <div class="paper">
-
-    <p>
-
-    앞으로는 감정 올라와도 함부로 말하지 않을게.<br>
-
-    오빠 상황 먼저 생각하는 사람이 될게.<br><br>
-
-    그리고 내가 서운해지는 상황이 생기면  
-
-    그 상황을 의심하기보다  
-
-    내 감정부터 말하려고 할게.<br><br>
-
-    예를 들어  
-
-    “나 혼자 생각이 많아지면서 서운함이 쌓였던 것 같아”  
-
-    이런 식으로 말해볼게.<br><br>
-
-    그리고 내 감정만 말하는 게 아니라  
-
-    내가 원하는 것도 같이 말할게.<br><br>
-
-    마지막으로  
-
-    오빠의 가정사나, 약점이나, 털어놓은 얘기를  
-
-    싸울 때나 평소에 절대 꺼내지 않을게.<br><br>
-
-    참다가 터지지 않고  
-
-    부드럽게 얘기하려고 해볼게.
-
-    </p>
-
+  <div class="info-banner reveal">
+    <div class="info-item"><span class="val">수서 → 강릉</span><span class="label">📍 동선</span></div>
+    <div class="info-item"><span class="val">남자친구 차</span><span class="label">🚗 이동</span></div>
+    <div class="info-item"><span class="val">약 2시간 30분</span><span class="label">⏱ 서울↔강릉</span></div>
   </div>
 
+  <div class="day-header reveal"><span class="day-badge">Day 1</span> 10월 2일 (목) · 강릉</div>
+  <div class="route-col reveal">
+
+    <!-- 수서 출발 -->
+    <div class="stop-card">
+      <div class="stop-top"><span class="stop-name">📍 수서 출발</span><span class="stop-time">8:56 AM 도착 → 9:00 AM 출발</span></div>
+      <p class="stop-desc">수서역 도착 후 바로 출발! 영동고속도로 타고 강릉으로 달려가요 🚗 가을 단풍 드라이브 기대해도 좋아요.</p>
+      <div class="stop-links"><span class="link-pill add" onclick="openModal(this)">＋ 링크 추가</span></div>
+    </div>
+
+    <!-- 수서 → 동화가든 -->
+    <div class="transit-block">
+      <button class="transit-btn" onclick="toggleMap(this)"
+        data-mode="car" data-min="150"
+        data-from="수서 (서울)" data-to="강릉짬뽕순두부 동화가든"
+        data-fx="80" data-fy="155" data-tx="440" data-ty="70"
+        data-path="M80,155 C110,140 150,118 200,100 C260,78 330,71 400,70 L440,70"
+        data-landmarks='[{"x":52,"y":155,"label":"수서"},{"x":185,"y":108,"label":"영동고속도로"},{"x":320,"y":69,"label":"대관령"},{"x":462,"y":68,"label":"강릉"}]'>
+        <span class="icon">🚗</span>
+        <span>자가용 <strong>약 2시간 30분</strong> · 수서 → 강릉 (영동고속도로)</span>
+        <span class="arrow">▼</span>
+      </button>
+      <div class="map-panel">
+        <div class="map-inner">
+          <svg class="route-svg" viewBox="0 0 520 200" xmlns="http://www.w3.org/2000/svg"></svg>
+          <div class="map-info-bar">
+            <div class="map-chip">🚗 자가용</div>
+            <div class="map-chip">⏱ <strong>약 2시간 30분</strong></div>
+            <div class="map-chip">📏 약 230km · 영동고속도로</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 동화가든 -->
+    <div class="stop-card">
+      <div class="stop-top"><span class="stop-name">🍲 강릉짬뽕순두부 동화가든 본점</span><span class="stop-time">11:30 AM</span></div>
+      <p class="stop-desc">강릉 와서 순두부 안 먹으면 섭섭! 짬뽕 베이스 얼큰한 순두부찌개가 시그니처. 현지인들도 줄 서는 본점. 도착하자마자 점심 든든하게 먹기 🍲</p>
+      <div class="stop-links">
+        <a href="https://map.naver.com/p/search/%EA%B0%95%EB%A6%89%EC%A7%AC%EB%BD%95%EC%88%9C%EB%91%90%EB%B6%80+%EB%8F%99%ED%99%94%EA%B0%80%EB%93%A0+%EB%B3%B8%EC%A0%90" target="_blank" class="link-pill">🗺️ 네이버 지도</a>
+        <span class="link-pill add" onclick="openModal(this)">＋ 링크 추가</span>
+      </div>
+    </div>
+
+    <!-- 동화가든 → 아르떼뮤지엄 -->
+    <div class="transit-block">
+      <button class="transit-btn" onclick="toggleMap(this)"
+        data-mode="car" data-min="15"
+        data-from="동화가든 본점" data-to="강릉 아르떼뮤지엄"
+        data-fx="90" data-fy="110" data-tx="420" data-ty="100"
+        data-path="M90,110 C160,108 260,104 340,102 C380,101 400,100 420,100"
+        data-landmarks='[{"x":62,"y":108,"label":"동화가든"},{"x":255,"y":98,"label":"강릉 시내"},{"x":442,"y":98,"label":"아르떼뮤지엄"}]'>
+        <span class="icon">🚗</span>
+        <span>자가용 <strong>약 15분</strong> · 동화가든 → 아르떼뮤지엄</span>
+        <span class="arrow">▼</span>
+      </button>
+      <div class="map-panel">
+        <div class="map-inner">
+          <svg class="route-svg" viewBox="0 0 520 200" xmlns="http://www.w3.org/2000/svg"></svg>
+          <div class="map-info-bar">
+            <div class="map-chip">🚗 자가용</div>
+            <div class="map-chip">⏱ <strong>약 15분</strong></div>
+            <div class="map-chip">📏 약 8km</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 아르떼뮤지엄 -->
+    <div class="stop-card">
+      <div class="stop-top"><span class="stop-name">🎨 강릉 아르떼뮤지엄</span><span class="stop-time">12:00 ~ 2:00 PM</span></div>
+      <p class="stop-desc">국내 최대 규모 미디어아트 전시관! 빛과 음악이 어우러진 몰입형 전시. 커플 사진 명소 1순위 🌊 평일 낮이라 비교적 한산. 1시간 30분~2시간 여유있게 구경 추천. 입장권 사전 예매 추천!</p>
+      <div class="stop-links">
+        <a href="https://map.naver.com/p/search/%EA%B0%95%EB%A6%89+%EC%95%84%EB%A5%B4%EB%96%BC%EB%AE%A4%EC%A7%80%EC%97%84" target="_blank" class="link-pill">🗺️ 네이버 지도</a>
+        <a href="https://www.artemuseum.com" target="_blank" class="link-pill teal">🎟️ 공식 예매</a>
+        <span class="link-pill add" onclick="openModal(this)">＋ 링크 추가</span>
+      </div>
+    </div>
+
+    <!-- 아르떼뮤지엄 → 346 커피스토리 -->
+    <div class="transit-block">
+      <button class="transit-btn" onclick="toggleMap(this)"
+        data-mode="car" data-min="20"
+        data-from="강릉 아르떼뮤지엄" data-to="346 커피스토리"
+        data-fx="90" data-fy="100" data-tx="420" data-ty="110"
+        data-path="M90,100 C140,100 200,103 260,106 C320,109 370,110 420,110"
+        data-landmarks='[{"x":62,"y":98,"label":"아르떼뮤지엄"},{"x":255,"y":100,"label":"주문진 해안로"},{"x":442,"y":108,"label":"346 커피스토리"}]'>
+        <span class="icon">🚗</span>
+        <span>자가용 <strong>약 20분</strong> · 아르떼뮤지엄 → 346 커피스토리</span>
+        <span class="arrow">▼</span>
+      </button>
+      <div class="map-panel">
+        <div class="map-inner">
+          <svg class="route-svg" viewBox="0 0 520 200" xmlns="http://www.w3.org/2000/svg"></svg>
+          <div class="map-info-bar">
+            <div class="map-chip">🚗 자가용</div>
+            <div class="map-chip">⏱ <strong>약 20분</strong></div>
+            <div class="map-chip">📏 약 13km · 해안로</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 346 커피스토리 -->
+    <div class="stop-card">
+      <div class="stop-top"><span class="stop-name">☕ 346 커피스토리</span><span class="stop-time">2:30 ~ 4:30 PM</span></div>
+      <p class="stop-desc">강릉 바다 뷰 감성 카페! 창밖으로 동해 바다가 펼쳐지는 뷰가 압도적. 시그니처 커피 + 에이드 마시면서 파도 소리 들으며 멍 때리기 최고. 10월 가을 바다 뷰 기대해도 좋아요 🌊</p>
+      <div class="stop-links">
+        <a href="https://map.naver.com/p/search/346+%EC%BB%A4%ED%94%BC%EC%8A%A4%ED%86%A0%EB%A6%AC+%EA%B0%95%EB%A6%89" target="_blank" class="link-pill">🗺️ 네이버 지도</a>
+        <span class="link-pill add" onclick="openModal(this)">＋ 링크 추가</span>
+      </div>
+    </div>
+
+    <!-- 346 → 강문해변 -->
+    <div class="transit-block">
+      <button class="transit-btn" onclick="toggleMap(this)"
+        data-mode="car" data-min="8"
+        data-from="346 커피스토리" data-to="강문해변"
+        data-fx="420" data-fy="80" data-tx="120" data-ty="130"
+        data-path="M420,80 C370,90 300,108 230,120 C185,128 150,131 120,130"
+        data-landmarks='[{"x":442,"y":78,"label":"346 커피스토리"},{"x":270,"y":108,"label":"해안도로"},{"x":92,"y":130,"label":"강문해변"}]'>
+        <span class="icon">🚗</span>
+        <span>자가용 <strong>약 8분</strong> · 346 커피스토리 → 강문해변</span>
+        <span class="arrow">▼</span>
+      </button>
+      <div class="map-panel">
+        <div class="map-inner">
+          <svg class="route-svg" viewBox="0 0 520 200" xmlns="http://www.w3.org/2000/svg"></svg>
+          <div class="map-info-bar">
+            <div class="map-chip">🚗 자가용</div>
+            <div class="map-chip">⏱ <strong>약 8분</strong></div>
+            <div class="map-chip">📏 약 5km · 해안도로</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 강문해변 산책 -->
+    <div class="stop-card">
+      <div class="stop-top"><span class="stop-name">🌊 강문해변 바다 산책</span><span class="stop-time">4:30 ~ 6:00 PM</span></div>
+      <p class="stop-desc">경포호와 바다가 만나는 조용하고 한적한 강문해변! 관광객이 적어서 오붓하게 둘만의 시간 보내기 딱이에요. 10월 가을 노을 보면서 파도 소리 들으며 손잡고 산책 🌅 바람 있을 수 있으니 얇은 겉옷 챙기기!</p>
+      <div class="stop-links">
+        <a href="https://map.naver.com/p/search/%EA%B0%95%EB%AC%B8%ED%95%B4%EB%B3%80+%EA%B0%95%EB%A6%89" target="_blank" class="link-pill">🗺️ 네이버 지도</a>
+        <span class="link-pill add" onclick="openModal(this)">＋ 링크 추가</span>
+      </div>
+    </div>
+
+    <!-- 강문해변 → 숙소 -->
+    <div class="transit-block">
+      <button class="transit-btn" onclick="toggleMap(this)"
+        data-mode="car" data-min="10"
+        data-from="강문해변" data-to="강릉 숙소"
+        data-fx="120" data-fy="130" data-tx="400" data-ty="90"
+        data-path="M120,130 C180,120 260,105 330,96 C365,91 385,90 400,90"
+        data-landmarks='[{"x":92,"y":130,"label":"강문해변"},{"x":270,"y":108,"label":"강릉 시내"},{"x":422,"y":88,"label":"숙소"}]'>
+        <span class="icon">🚗</span>
+        <span>자가용 <strong>약 10분</strong> · 강문해변 → 숙소 체크인</span>
+        <span class="arrow">▼</span>
+      </button>
+      <div class="map-panel">
+        <div class="map-inner">
+          <svg class="route-svg" viewBox="0 0 520 200" xmlns="http://www.w3.org/2000/svg"></svg>
+          <div class="map-info-bar">
+            <div class="map-chip">🚗 자가용</div>
+            <div class="map-chip">⏱ <strong>약 10분</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 숙소 -->
+    <div class="stop-card">
+      <div class="stop-top"><span class="stop-name">🏨 강릉 숙소 체크인 + 휴식</span><span class="stop-time">6:00 ~ 7:30 PM</span></div>
+      <p class="stop-desc">숙소에서 씻고 쉬면서 저녁 준비! 오늘 많이 걸었으니까 잠깐 누워서 충전 🔋</p>
+      <div class="stop-links">
+        <span class="tbd-badge">📌 숙소 미정</span>
+        <span class="link-pill add" onclick="openModal(this)">＋ 숙소 링크 추가</span>
+      </div>
+      <div class="alt-box">
+        <strong>🏨 강릉 숙소 추천 스타일</strong>
+        <a href="https://map.naver.com/p/search/%EA%B0%95%EB%A6%89+%EB%B0%94%EB%8B%A4%EB%B7%B0+%ED%8E%9C%EC%85%98" target="_blank">바다뷰 펜션</a> ·
+        <a href="https://map.naver.com/p/search/%EA%B0%95%EB%A6%89+%EA%B0%90%EC%84%B1+%ED%98%B8%ED%85%94" target="_blank">강릉 감성 호텔</a> ·
+        <a href="https://map.naver.com/p/search/%EA%B2%BD%ED%8F%AC+%ED%92%80%EB%B9%8C%EB%9D%BC" target="_blank">경포 풀빌라</a>
+      </div>
+    </div>
+
+    <!-- 숙소 → 저녁 -->
+    <div class="transit-block">
+      <button class="transit-btn" onclick="toggleMap(this)"
+        data-mode="car" data-min="10"
+        data-from="숙소" data-to="다이닝조개 강릉본점"
+        data-fx="400" data-fy="90" data-tx="130" data-ty="120"
+        data-path="M400,90 C350,98 280,110 210,116 C175,119 150,120 130,120"
+        data-landmarks='[{"x":422,"y":88,"label":"숙소"},{"x":255,"y":108,"label":"강릉 해안로"},{"x":102,"y":120,"label":"다이닝조개"}]'>
+        <span class="icon">🚗</span>
+        <span>자가용 <strong>약 10분</strong> · 숙소 → 다이닝조개 강릉본점</span>
+        <span class="arrow">▼</span>
+      </button>
+      <div class="map-panel">
+        <div class="map-inner">
+          <svg class="route-svg" viewBox="0 0 520 200" xmlns="http://www.w3.org/2000/svg"></svg>
+          <div class="map-info-bar">
+            <div class="map-chip">🚗 자가용</div>
+            <div class="map-chip">⏱ <strong>약 10분</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 저녁 맛집 -->
+    <div class="stop-card">
+      <div class="stop-top"><span class="stop-name">🐚 다이닝조개 강릉본점</span><span class="stop-time">7:30 PM ~</span></div>
+      <p class="stop-desc">강원 강릉시 해안로 280 4호. 신선한 조개구이 전문점! 가을 바다 기운 받은 후 따뜻하게 조개구이로 마무리하는 저녁 🔥 강릉 해안로 위치라 분위기도 딱이에요.</p>
+      <div class="stop-links">
+        <a href="https://naver.me/xVlqjM2O" target="_blank" class="link-pill">🗺️ 네이버플레이스</a>
+        <span class="link-pill add" onclick="openModal(this)">＋ 링크 추가</span>
+      </div>
+    </div>
+
+  </div><!-- /route-col -->
+</section>
+
+<div class="wavy-divider">🌊 · · · 🌊 · · · 🌊</div>
+
+<!-- ═══════ DAY 2 : 서울 TBD ═══════ -->
+<section id="day2" class="plan-section anchor">
+  <div class="section-intro reveal">
+    <div class="plan-tag tag-2">Day 2</div>
+    <h2>✨ 서울 코스</h2>
+    <p>10월 3일 (금) · 강릉 → 서울 이동 후 코스 계획 중!</p>
+  </div>
+  <div class="coming-soon-box reveal">
+    <p>🗺️ 서울 코스 계획 중...</p>
+    <p style="font-size:1.1rem">어디서 놀지 정해지면 여기에 추가할게요 🌸</p>
+    <small>강릉에서 서울까지 약 2시간 30분 (영동고속도로)</small>
+  </div>
+</section>
+
+<footer>
+  가을 바다 파도 소리 들으면서<br>손잡고 걷는 거 기대돼 🌊
+  <small>이동 버튼 클릭 → 지도 애니메이션 · ＋ 버튼으로 링크 추가 · 더블클릭으로 수정</small>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <h3 id="modalTitle">링크 추가</h3>
+    <p id="modalSub">이 장소의 링크를 추가해요</p>
+    <label>링크 제목</label>
+    <input type="text" id="modalLabel" placeholder="예: 네이버 지도, 인스타그램, 예약 페이지">
+    <label>URL 주소</label>
+    <input type="url" id="modalUrl" placeholder="https://...">
+    <div class="modal-btns">
+      <button class="btn-delete" id="btnDelete" onclick="deleteLink()">🗑️ 삭제</button>
+      <button class="btn-cancel" onclick="closeModal()">취소</button>
+      <button class="btn-save" onclick="saveLink()">저장 ✓</button>
+    </div>
+  </div>
 </div>
 
 <script>
+/* SCROLL REVEAL */
+const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');});},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
 
-function showLetter(){
+/* SMOOTH SCROLL */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'});});
+});
 
-  document.getElementById('intro').style.display='none';
+/* MAP DRAW + CAR ANIM */
+const modeStyle={
+  walk:{road:'#b0c4b0',route:'#4caf50'},
+  car:{road:'#a8c4d0',route:'#1a6a9e'},
+  subway:{road:'#b0b8d0',route:'#3f51b5'},
+};
+const modeEmoji={walk:'🚶',car:'🚗',subway:'🚇'};
 
-  document.getElementById('letter1').style.display='flex';
-
+function drawMap(btn,svg){
+  const d=btn.dataset,mode=d.mode||'car',st=modeStyle[mode]||modeStyle.car;
+  const W=520,H=200,fx=+d.fx,fy=+d.fy,tx=+d.tx,ty=+d.ty,pathD=d.path;
+  let lms=[];try{lms=JSON.parse(d.landmarks||'[]');}catch(e){}
+  const ns='http://www.w3.org/2000/svg';
+  svg.innerHTML='';
+  const defs=document.createElementNS(ns,'defs');
+  defs.innerHTML=`<filter id="sh"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="rgba(0,0,0,0.2)"/></filter>`;
+  svg.appendChild(defs);
+  const bg=document.createElementNS(ns,'rect');bg.setAttribute('width',W);bg.setAttribute('height',H);bg.setAttribute('fill','#dff0f8');bg.setAttribute('rx','10');svg.appendChild(bg);
+  for(let x=40;x<W;x+=60){const l=document.createElementNS(ns,'line');l.setAttribute('x1',x);l.setAttribute('y1',0);l.setAttribute('x2',x);l.setAttribute('y2',H);l.setAttribute('stroke','#c8e4f0');l.setAttribute('stroke-width','1');svg.appendChild(l);}
+  for(let y=30;y<H;y+=45){const l=document.createElementNS(ns,'line');l.setAttribute('x1',0);l.setAttribute('y1',y);l.setAttribute('x2',W);l.setAttribute('y2',y);l.setAttribute('stroke','#c8e4f0');l.setAttribute('stroke-width','1');svg.appendChild(l);}
+  const rb=document.createElementNS(ns,'path');rb.setAttribute('d',pathD);rb.setAttribute('fill','none');rb.setAttribute('stroke',st.road);rb.setAttribute('stroke-width','14');rb.setAttribute('stroke-linecap','round');svg.appendChild(rb);
+  const rc=document.createElementNS(ns,'path');rc.setAttribute('d',pathD);rc.setAttribute('fill','none');rc.setAttribute('stroke','#f5f0e8');rc.setAttribute('stroke-width','8');rc.setAttribute('stroke-linecap','round');svg.appendChild(rc);
+  const rl=document.createElementNS(ns,'path');rl.setAttribute('d',pathD);rl.setAttribute('fill','none');rl.setAttribute('stroke',st.route);rl.setAttribute('stroke-width','4');rl.setAttribute('stroke-linecap','round');rl.setAttribute('stroke-dasharray','0 9999');svg.appendChild(rl);
+  const dl=document.createElementNS(ns,'path');dl.setAttribute('d',pathD);dl.setAttribute('fill','none');dl.setAttribute('stroke','rgba(255,255,255,.55)');dl.setAttribute('stroke-width','2');dl.setAttribute('stroke-dasharray','8 10');dl.setAttribute('stroke-linecap','round');svg.appendChild(dl);
+  lms.forEach(lm=>{
+    const cx=+lm.x,cy=+lm.y;
+    const c=document.createElementNS(ns,'circle');c.setAttribute('cx',cx);c.setAttribute('cy',cy);c.setAttribute('r','4');c.setAttribute('fill','white');c.setAttribute('stroke','#8ab');c.setAttribute('stroke-width','1.5');svg.appendChild(c);
+    const rw=lm.label.length*6.5+10,lx=cx+7,ly=cy-12;
+    const rect=document.createElementNS(ns,'rect');rect.setAttribute('x',lx-2);rect.setAttribute('y',ly-11);rect.setAttribute('width',rw);rect.setAttribute('height','14');rect.setAttribute('fill','rgba(255,255,255,.88)');rect.setAttribute('rx','4');svg.appendChild(rect);
+    const t=document.createElementNS(ns,'text');t.setAttribute('x',lx+1);t.setAttribute('y',ly);t.setAttribute('font-size','9.5');t.setAttribute('fill','#446');t.setAttribute('font-family','Gowun Dodum,sans-serif');t.textContent=lm.label;svg.appendChild(t);
+  });
+  function pin(x,y,col,label,isFrom){
+    const c=document.createElementNS(ns,'circle');c.setAttribute('cx',x);c.setAttribute('cy',y);c.setAttribute('r','7');c.setAttribute('fill',col);c.setAttribute('stroke','white');c.setAttribute('stroke-width','2');svg.appendChild(c);
+    const bx=isFrom?x+10:x-10,anchor=isFrom?'start':'end',ly=y-13,rw=label.length*7+10;
+    const rect=document.createElementNS(ns,'rect');rect.setAttribute('x',isFrom?bx-2:bx-rw+2);rect.setAttribute('y',ly-11);rect.setAttribute('width',rw);rect.setAttribute('height','14');rect.setAttribute('fill',col);rect.setAttribute('rx','5');svg.appendChild(rect);
+    const t=document.createElementNS(ns,'text');t.setAttribute('x',isFrom?bx+1:bx-1);t.setAttribute('y',ly);t.setAttribute('text-anchor',anchor);t.setAttribute('font-size','9.5');t.setAttribute('fill','white');t.setAttribute('font-weight','bold');t.setAttribute('font-family','Gowun Dodum,sans-serif');t.textContent=label;svg.appendChild(t);
+  }
+  pin(fx,fy,st.route,'출발',true);pin(tx,ty,'#e84560','도착',false);
+  const car=document.createElementNS(ns,'circle');car.setAttribute('r','10');car.setAttribute('fill',st.route);car.setAttribute('stroke','white');car.setAttribute('stroke-width','2.5');car.setAttribute('cx',fx);car.setAttribute('cy',fy);car.setAttribute('filter','url(#sh)');svg.appendChild(car);
+  const ct=document.createElementNS(ns,'text');ct.setAttribute('x',fx);ct.setAttribute('y',fy+4.5);ct.setAttribute('text-anchor','middle');ct.setAttribute('font-size','11');ct.textContent=modeEmoji[mode]||'🚗';svg.appendChild(ct);
+  svg._rl=rl;svg._car=car;svg._ct=ct;svg._pathD=pathD;
 }
 
-function nextPage(){
-
-  document.getElementById('letter1').style.display='none';
-
-  document.getElementById('letter2').style.display='flex';
-
+function animateCar(svg){
+  const pe=document.createElementNS('http://www.w3.org/2000/svg','path');pe.setAttribute('d',svg._pathD);
+  const total=pe.getTotalLength();
+  const rl=svg._rl,car=svg._car,ct=svg._ct;
+  let start=null;
+  function step(ts){
+    if(!start)start=ts;
+ const p=Math.min((ts-start)/2200,1),e=p<.5?2*p*p:-1+(4-2*p)*p,len=e*total;
+ rl.setAttribute('행정-대시 배열', '${len} ${total-len+1}');
+ const pt=pe.getPointAtLength(len);
+ car.setAttribute('cx',pt.x);car.setAttribute('cy',pt.y);ct.setAttribute('x',pt.x);ct.setAttribute('y',pt.y+4.5);
+ if(p<1)requestAnimationFrame(단계);
+  }
+ 애니메이션 프레임 요청(단계);
 }
 
-</script>
+기능. 토글맵(btn){
+ const panel=btn.nextElementSibling, isOpen=panel.classList.contains('open');
+ if(isOpen){panel.classList.remove('open');btn.classList.remove('open'); 리턴;}
+ const svg=panel.쿼리 셀렉터('루트-svg');
+ if(!svg._drawn){drawMap(btn,svg);svg._drawn=true;}
+ 패널.classList.add('열림');btn.classList.add('열림');
+ setTimeout((()=>애니메이션카(svg),200);
+}
 
-</body>
-</html>
+/* 모달 */
+currentPill=null,isEditing=false를 허용합니다;
+기능. openModal(알약){
+ currentPill=pill;isEditing=pill.classList.containment('기존');
+ document.getElementById('modalTitle').'textContent=편집 중입니까?'링크 수정':'링크 추가';
+ document.getElementById('modalSub').'textContent=편집 중입니까?'링크를 수정하거나 삭제할 수 있어요.':'이 장소의 링크를 추가해요';
+ document.getElementById('modalLabel').value=isEditing?(pill.dataset.label||):'';
+ document.getElementById('modalUrl').value=isEditing?(pill.dataset.url||):'';
+ document.getElementById('btnDelete').style.display=편집 중인가요? 'inline-flex': '없음';
+ document.getElementById('modalOverlay').classList.add('open');
+ setTimeout((()=>document.getElementById('modalLabel').포커스 (),100);
+}
+함수 closeModal(){document.getElementById('modalOverlay')}classList.remove('open');currentPill=null;}
+기능. 저장 링크(){
+ const label=document.getElementById('modalLabel').value.trim(),url=document.getElementById('modalUrl').value.trim();
+ if(!label){document.getElementById('modalLabel').포커스 (); 리턴;}
+ if(isEditing & ¤tPill){currentPill.textContent='🔗 '+label;currentPill.href=url||'#';if(url)currentPill.target='_blank';currentPill.dataset=label;currentPill.dataset.url=url;}
+ 그렇지 않으면 if(currentPill){const a=document.createElement('a');a.className='링크-필 존재';a.textContent='🔗'+label;a.href=url||'#';if(url)a.target='_blank';a.dataset.label=label;a.title='더블클릭으로 수정';a.url='url';a.AddEventListener('dblclick',e=>{e.ventDefault();op
+ 클로즈모달();
+}
+함수 deleteLink(){if(currentPill&isEditing)currentPill.remove();closeModal();}
+document.getElementById('modalOverlay').addEventListener('클릭', function(e){if(e.target===this)closeModal();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+</대본>
+</몸>
+</HTML>
